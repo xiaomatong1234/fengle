@@ -9,7 +9,7 @@ print("Template folder:", os.path.join(os.getcwd(), 'templates'))
 
 app = Flask(__name__)
 # 应用启动时加载 JSON 数据
-with open('data/notes_db.json', 'r') as json_file:
+with open('book_notes/data/notes_db.json', 'r') as json_file:
     notes_db = json.load(json_file)
 
 notes_bp = Blueprint('notes', __name__, url_prefix='/notes')
@@ -63,7 +63,7 @@ def create_note():
         if title not in [note['title'] for note in notes_db]:
             notes_db.append(new_note)
             # 更新 notes.json 文件
-            with open('data/notes_db.json', 'w', encoding='utf-8') as file:
+            with open('book_notes/data/notes_db.json', 'w', encoding='utf-8') as file:
                 json.dump(notes_db,file,ensure_ascii=False, indent=4)
         else:
             return {
