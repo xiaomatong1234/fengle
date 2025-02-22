@@ -7,6 +7,9 @@ import os
 print ("Current working directory:", os.getcwd ())
 print("Template folder:", os.path.join(os.getcwd(), 'templates'))
 
+# 设置日志级别
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 app = Flask(__name__)
 # 应用启动时加载 JSON 数据
 with open('book_notes/data/notes_db.json', 'r') as json_file:
