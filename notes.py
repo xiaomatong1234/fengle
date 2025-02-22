@@ -9,7 +9,7 @@ print ("Current working directory:", os.getcwd ())
 print("Template folder:", os.path.join(os.getcwd(), 'templates'))
 
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='templates')
 
 # 设置日志级别
 logging.basicConfig(level=logging.DEBUG)
